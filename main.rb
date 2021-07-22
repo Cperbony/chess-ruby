@@ -1,17 +1,25 @@
-require_relative './lib/board'
+require_relative './lib/pieces'
 require_relative './lib/board_rendered_text'
-require_relative './lib/pawn'
-require_relative './lib/rook'
-require_relative './lib/bishop'
-require_relative './lib/king'
-require_relative './lib/queen'
-require_relative './lib/knight'
+require_relative './lib/board'
 
 # Using Factory
-board = Board.start_chess
+# board = Board.start_chess
 
-text_board = BoardRenderedText.new(board)
-puts text_board.render
+# board = Board.new
+# board[[0, 0]] = Rook.new(board, [0, 0], :black)
+# board[[0, 1]].available_moves
+
+board = Board.new
+board[[2, 2]] = King.new(board, [2, 2], :black)
+p board[[2, 2]].available_moves
+# board[[0, 1]] = Pawn.new(board, :white)
+
+# piece = board[[0, 0]]
+# piece.enemy?([0, 1])
+# piece.enemy?([0, 0])
+
+# text_board = BoardRenderedText.new(board)
+# puts text_board.render
 
 # board = Board.new
 # board[[1, 0]] = Pawn.new([0, 0], :black)
